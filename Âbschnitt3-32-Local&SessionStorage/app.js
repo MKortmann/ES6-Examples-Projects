@@ -34,7 +34,6 @@ document.querySelector("form").addEventListener("submit", function(e) {
 
   e.preventDefault();
 });
-
 // The data are storage in localStorage as JSON file, ex: ["walk the dog","walk the dog 2","walk the cat","walk the cat 2"]
 //But it is not an array!!
 console.log(localStorage.getItem("tasks"));

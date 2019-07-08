@@ -49,8 +49,10 @@ class UI {
   deleteBook(target) {
     if (target.className === "delete") {
       memory.removeFromLocalStorage(target.parentElement.parentElement);
+      console.log(target);
+      console.log(target.parentElement);
+      console.log(target.parentElement.parentElement)
       target.parentElement.parentElement.remove();
-
     }
   }
   // Clear Fields
@@ -98,25 +100,29 @@ class Memory {
   removeFromLocalStorage(book) {
     this.books = JSON.parse(localStorage.getItem("books"));
 
-    for(let i=0; i < this.books.length; i++) {
-      debugger
-      if(this.books[i].title === book.children[0].innerHTML) {
-        this.books.splice(i,1);
+    // for(let i=0; i < this.books.length; i++) {
+    //   debugger
+    //   if(this.books[i].isbn === book.children[2].innerHTML) {
+    //     this.books.splice(i,1);
+    //   }
+    // }
+
+    //because of splice inside of forEach, I have to pass it to a local variable
+    //here!!
+    const books = this.books;
+
+    books.forEach(function(item, index) {
+      if(item.isbn === book.children[2].innerHTML) {
+        books.splice(index,1);
       }
-    }
+    })
+
+    this.books = books;
 
     localStorage.clear();
     localStorage.setItem("books", JSON.stringify(this.books));
 
-    // this.books.forEach(function(item, index) {
-    //   if(item.title === book.children[0].innerHTML) {
-    //     debugger
-    //     this.books.splice(index,1);
-    //   }
-    // }, this.books)
-
     console.log(book);
-
 
   }
 }
