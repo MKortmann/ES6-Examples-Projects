@@ -6,6 +6,7 @@ function getJokes(e) {
 
   const xhr = new XMLHttpRequest();
 
+// this api at this site is very simple to use! We do not need to authenticate...
   xhr.open("GET", `http://api.icndb.com/jokes/random/${number}`, true);
 
   xhr.onload = function() {
