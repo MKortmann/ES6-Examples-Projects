@@ -1,55 +1,41 @@
-document.getElementById("button1").addEventListener("click", getText);
-document.getElementById("button2").addEventListener("click", getJson);
-document.getElementById("button3").addEventListener("click", getExternal);
+// const sayHello = function () {
+//   console.log("Hello");
+// }
 
-// you have to use fetch 2 times because fetch return a promise. And the response.text() returns also a promise.
-// GET LOCAL TEXT FILE
-function getText() {
-  fetch("text.txt")
-    .then(function(response) {
-      return response.text();
-    })
-    .then(function(data) {
-      document.getElementById("output").innerHTML = data;
-    })
-    .catch(function(err) {
-      console.log(err);
-    });
-}
+// With Arrow function
+// const sayHello = () => {
+//   console.log("Hello");
+// }
+// One line function does not need braces
 
-// GET LOCAL JSON DATA
-function getJson() {
-  fetch("posts.json")
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(data) {
-      let output = "";
-      data.forEach(function(post) {
-        output += `<li>${post.title}</li>`;
-      })
-      document.getElementById("output").innerHTML = output;
-    })
-    .catch(function(err) {
-      console.log(err);
-    });
-}
+// const sayHello = () => console.log("Hello");
 
+// Same as above
+// const sayHello = () => "Hello";
 
-// GET LOCAL External API
-function getExternal() {
-  fetch("https://api.github.com/users")
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(data) {
-      let output = "";
-      data.forEach(function(user) {
-        output += `<li>${user.login}</li>`;
-      })
-      document.getElementById("output").innerHTML = output;
-    })
-    .catch(function(err) {
-      console.log(err);
-    });
-}
+// Return object
+// const sayHello = () => ({ msg: "Hello"});
+
+// Single param does not need parenthesis
+// const sayHello = name => console.log(`Hello: ${name}`);
+
+// Multiple parmas need parenthesis
+// const sayHello = (firstName, lastName) => console.log(`Hello: ${firstName} ${lastName}`);
+//
+// sayHello("Brad", "Traversy");
+
+const users = ["Nathan", "John", "William"];
+
+// const nameLengths = users.map(function(name) {
+//   return name.length;
+// });
+
+// Shorter
+// const nameLengths = users.map((name) => {
+//   return name.length;
+// });
+
+// Shortest
+const nameLengths = users.map(name => name.length);
+
+console.log(nameLengths);

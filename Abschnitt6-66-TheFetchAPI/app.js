@@ -4,17 +4,26 @@ document.getElementById("button3").addEventListener("click", getExternal);
 
 // you have to use fetch 2 times because fetch return a promise. And the response.text() returns also a promise.
 // GET LOCAL TEXT FILE
+// function getText() {
+//   fetch("text.txt")
+//     .then(function(response) {
+//       return response.text();
+//     })
+//     .then(function(data) {
+//       document.getElementById("output").innerHTML = data;
+//     })
+//     .catch(function(err) {
+//       console.log(err);
+//     });
+// }
+
+// GET LOCAL TEXT FILE SAME AS ABOVE BUT USING ARROW FUNCTIONS
 function getText() {
   fetch("text.txt")
-    .then(function(response) {
-      return response.text();
-    })
-    .then(function(data) {
-      document.getElementById("output").innerHTML = data;
-    })
-    .catch(function(err) {
-      console.log(err);
-    });
+    .then( response => response.text())
+    .then( data =>     document.getElementById("output").innerHTML = data
+    )
+    .catch( err => console.log(err) );
 }
 
 // GET LOCAL JSON DATA
