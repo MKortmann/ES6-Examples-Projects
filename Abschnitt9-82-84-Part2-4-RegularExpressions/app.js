@@ -36,10 +36,29 @@ re = /([0-9]x){3}/; //it match for example:str = "3x3x3x"; ... it looks only for
 
 re = /^([0-9]x){3}$/; //Now it should be exactly 3x3x3
 
+// Shorthand Character Classes
+re = /\w/; // Word character - alphanumeric (can be any letter or any number) or _ DO NOT MATCH for example with !, ;, space ...
+re = /\w+/; //it's gonna look one or more alphanumberic caracthers or _  .... DO NOT MATCH for example with !, ;, space ...
+re = /\W/; // Non-Word character: exactly the opposite
+
+re = /\d/; // match any digit
+re = /\d+/; // match any digit 0 or more times
+
+re = /\D/; // match non-digit
+re = /\D/; // match non-digit or more times
+re = /\s/; // match whitespace char: tab, space
+re = /\S/; // match non-whitespace char
+
+re = /Hell\b/i; // Word boundary:  means that founds exactly the word Hell place in a string. It can be in any place but should be Hell.
+
+// Assertions: kind like conditionals
+re = /x(?=y)/; // Match x only if followed by y
+re = /x(?!y)/; // Match x only if NOT followed by y
+
 
 
 // String to match
-const str = "3x3x3x";
+const str = "xy";
 // Log Results
 const result = re.exec(str);
 // if match we get a result array with the index meaning the number in the array that the first caracter matched
