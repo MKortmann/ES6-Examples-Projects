@@ -2,8 +2,10 @@
 // We have a state that we can change trough our script. So we do not have to
 // fill the page with a lot of html files or code. We do all using javaScript
 
+// the PageState function is used only to track the state
 const PageState = function() {
-  let currentState = new homeState(this);
+  debugger
+  let currentState = new homeState();
 
   this.init = function() {
     this.change(new homeState);

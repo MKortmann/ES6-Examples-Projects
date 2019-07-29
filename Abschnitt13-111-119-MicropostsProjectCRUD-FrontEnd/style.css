@@ -1,0 +1,5 @@
+
+#addMealIcon {
+  background: url("./lib/fontawesome-free-5.9.0-web/svgs/solid/plus.svg") no-repeat ;
+  background-position: left;
+}
